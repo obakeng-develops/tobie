@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, List
 from fastapi import FastAPI, HTTPException
 from models.models import User_Pydantic, UserIn_Pydantic, User
 from pydantic import BaseModel
@@ -19,9 +19,16 @@ def read_root():
     return {"Hello": "World"}
 
 
-@app.get("/v1/users", response_modelList[User_Pydantic])
+@app.get("/v1/users", response_model=List[User_Pydantic])
 async def get_users():
     return await User_Pydantic.from_queryset(User.all())
+
+app.post("/v1/users", response_model=User_Pydantic)
+
+
+async def create_user(user: UserIn_Pydantic):
+    user_obj = await User.create(**user.dict(exclude_unset=True))
+    return await User_Pydantic.from_tortoise_orm(user_obj)
 
 
 @app.get("/v1/items/{item_id}")
