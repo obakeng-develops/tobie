@@ -1,6 +1,6 @@
 from typing import Optional
 from fastapi import FastAPI, HTTPException
-from models import User_Pydantic, UserIn_Pydantic, User
+from models.models import User_Pydantic, UserIn_Pydantic, User
 from pydantic import BaseModel
 
 from tortoise.contrib.fastapi import HTTPNotFoundError, register_tortoise
@@ -29,4 +29,10 @@ def update_item(item_id: int, item: Item):
     return {"item_price": item.price, "item_id": item_id}
 
 
-register_tortoise
+register_tortoise(
+    app,
+    db_url='sqlite://db.sqlite3',
+    modules={"models": ["models"]},
+    generate_schemas=True,
+    add_exception_handlers=True
+)
