@@ -19,6 +19,11 @@ def read_root():
     return {"Hello": "World"}
 
 
+@app.get("/v1/users", response_modelList[User_Pydantic])
+async def get_users():
+    return await User_Pydantic.from_queryset(User.all())
+
+
 @app.get("/v1/items/{item_id}")
 def read_item(item_id: int, q: Optional[str] = None):
     return {"item_id": item_id, "q": q}
