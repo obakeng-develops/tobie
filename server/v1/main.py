@@ -1,6 +1,9 @@
 from typing import Optional
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
+from models import User_Pydantic, UserIn_Pydantic, User
 from pydantic import BaseModel
+
+from tortoise.contrib.fastapi import HTTPNotFoundError, register_tortoise
 
 app = FastAPI()
 
@@ -24,3 +27,6 @@ def read_item(item_id: int, q: Optional[str] = None):
 @app.put("/v1/items/{item_id}")
 def update_item(item_id: int, item: Item):
     return {"item_price": item.price, "item_id": item_id}
+
+
+register_tortoise
