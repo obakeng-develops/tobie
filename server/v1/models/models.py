@@ -8,8 +8,8 @@ class UserLogin(Model):
     The user login model
     """
     id = fields.IntField(pk=True)
-    first_name = fields.CharField(max_length=255, null=True)
-    last_name = fields.CharField(max_length=255, null=True)
+    first_name = fields.CharField(max_length=100, null=True)
+    last_name = fields.CharField(max_length=100, null=True)
     email = fields.CharField(max_length=80)
     password_hash = fields.CharField(max_length=128, null=True)
     join_date = fields.DatetimeField(auto_now_add=True)
@@ -26,6 +26,20 @@ class UserLogin(Model):
         exclude = ['password_hash']
 
 
-User_Pydantic = pydantic_model_creator(User, name="User")
+User_Pydantic = pydantic_model_creator(UserLogin, name="UserLogin")
 UserIn_Pydantic = pydantic_model_creator(
-    User, name="User", exclude_readonly=True)
+    UserLogin, name="UserLogin", exclude_readonly=True)
+
+
+class Store(Model):
+    """
+    Product keeps all information about the saved product
+    """
+    id = fields.IntField(pk=True)
+    store_name = fields.CharField(max_length=255, null=True)
+    store_url = fields.CharField(max_length=200, null=True)
+
+
+Store_Pydantic = pydantic_model_creator(Store, name="Store")
+StoreIn_Pydantic = pydantic_model_creator(
+    Store, name="Store", exclude_readonly=True)
