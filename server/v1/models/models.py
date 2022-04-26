@@ -20,11 +20,3 @@ class User(Model):
 User_Pydantic = pydantic_model_creator(User, name="User")
 UserIn_Pydantic = pydantic_model_creator(
     User, name="User", exclude_readonly=True)
-
-
-async def init():
-    await Tortoise.init(
-        db_url='sqlite://db.sqlite3',
-        modules={'models': ['models']}
-    )
-    await Tortoise.generate_schema()
