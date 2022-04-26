@@ -23,9 +23,8 @@ def read_root():
 async def get_users():
     return await User_Pydantic.from_queryset(User.all())
 
-app.post("/v1/users", response_model=User_Pydantic)
 
-
+@app.post("/v1/users", response_model=User_Pydantic)
 async def create_user(user: UserIn_Pydantic):
     user_obj = await User.create(**user.dict(exclude_unset=True))
     return await User_Pydantic.from_tortoise_orm(user_obj)
