@@ -1,6 +1,22 @@
 from typing import Optional, List
 from fastapi import FastAPI, HTTPException
-from models.models import User_Pydantic, UserIn_Pydantic, UserLogin
+from models.models import (
+    User_Pydantic,
+    UserIn_Pydantic,
+    UserLogin,
+    Product_Pydantic,
+    ProductIn_Pydantic,
+    Product,
+    Store_Pydantic,
+    StoreIn_Pydantic,
+    Store,
+    Notifications_Pydantic,
+    NotificationsIn_Pydantic,
+    Notifications,
+    AuditLog_Pydantic,
+    AuditLogIn_Pydantic,
+    AuditLog
+)
 from pydantic import BaseModel
 
 from tortoise.contrib.fastapi import HTTPNotFoundError, register_tortoise
