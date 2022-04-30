@@ -79,3 +79,14 @@ class AuditLog(Model):
     affected_row = fields.CharField(max_length=200)
     action_date = fields.DatetimeField()
     user = fields.ForeignKeyField('models.UserLogin', related_name='auditlog')
+
+    def audit_log(self) -> str:
+        """
+        Returns table and affected row
+        """
+        return self.table + ' ' + self.affected_row
+
+
+AuditLog_Pydantic = pydantic_model_creator(AuditLog, name="AuditLog")
+AuditLogIn_Pydantic = pydantic_model_creator(
+    AuditLog, name="AuditLog", exclude_readonly=True)
