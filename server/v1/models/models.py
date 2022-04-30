@@ -96,7 +96,7 @@ class Notifications(Model):
     Notifications modeling all notifications to the user
     """
     notification_type = fields.CharEnumField(Notify_Type, max_length=2)
-    notification_priority = fields.CharEnumFiled(Notify_Priority, max_length=2)
+    notification_priority = fields.CharEnumField(Notify_Priority, max_length=2)
     notification_date = fields.DatetimeField(auto_now_add=True)
 
     def notification(self):
