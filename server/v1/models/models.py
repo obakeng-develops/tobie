@@ -1,3 +1,4 @@
+from tkinter import TRUE
 from tortoise.models import Model
 from tortoise import fields, Tortoise
 from tortoise.contrib.pydantic import pydantic_model_creator
@@ -43,3 +44,12 @@ class Store(Model):
 Store_Pydantic = pydantic_model_creator(Store, name="Store")
 StoreIn_Pydantic = pydantic_model_creator(
     Store, name="Store", exclude_readonly=True)
+
+
+class Notifications(Model):
+    """
+    Notifications modeling all notifications to the user
+    """
+    notification_type = fields.CharEnumField(str, max_length=2)
+    notification_priority = fields.CharEnumFiled(str, max_length=2)
+    notification_date = fields.DatetimeField(auto_now_add=True)
