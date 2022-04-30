@@ -51,6 +51,17 @@ async def create_product(product: Product_Pydantic):
 
 # Store Routes
 
+
+@app.get("/v1/store/all", response_model=List[Store_Pydantic])
+async def get_stores():
+    return await Store_Pydantic.from_queryset(Store.all())
+
+
+@app.post("/v1/store/", response_model=Store_Pydantic)
+async def create_product(store: Store_Pydantic):
+    store_obj = await Store.create(**store.dict(exclude_unset=True))
+    return await Store_Pydantic.from_tortoise_orm(store_obj)
+
 # Notification Routes
 # AuditLog Routes
 
