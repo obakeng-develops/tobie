@@ -1,4 +1,5 @@
 from tkinter import TRUE
+from enum import Enum
 from tortoise.models import Model
 from tortoise import fields, Tortoise
 from tortoise.contrib.pydantic import pydantic_model_creator
@@ -78,12 +79,24 @@ StoreIn_Pydantic = pydantic_model_creator(
     Store, name="Store", exclude_readonly=True)
 
 
+class Notify_Type(str, Enum):
+    USER = "U"
+    SYSTEM = "S"
+    EVENT = "E"
+
+
+class Notify_Priority(str, Enum):
+    HIGH = "H"
+    MEDIUM = "M"
+    LOW = "L"
+
+
 class Notifications(Model):
     """
     Notifications modeling all notifications to the user
     """
-    notification_type = fields.CharEnumField(str, max_length=2)
-    notification_priority = fields.CharEnumFiled(str, max_length=2)
+    notification_type = fields.CharEnumField(Notify_Type, max_length=2)
+    notification_priority = fields.CharEnumFiled(Notify_Priority, max_length=2)
     notification_date = fields.DatetimeField(auto_now_add=True)
 
     def notification(self):
