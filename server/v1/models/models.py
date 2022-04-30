@@ -56,7 +56,7 @@ class Product(Model):
 
 Product_Pydantic = pydantic_model_creator(Product, name="Product")
 ProductIn_Pydantic = pydantic_model_creator(
-    Product, name="Product", exclude_readonly=True)
+    Product, name="ProductIn", exclude_readonly=True)
 
 
 class Store(Model):
@@ -76,7 +76,7 @@ class Store(Model):
 
 Store_Pydantic = pydantic_model_creator(Store, name="Store")
 StoreIn_Pydantic = pydantic_model_creator(
-    Store, name="Store", exclude_readonly=True)
+    Store, name="StoreIn", exclude_readonly=True)
 
 
 class Notify_Type(str, Enum):
@@ -112,7 +112,7 @@ class Notifications(Model):
 Notifications_Pydantic = pydantic_model_creator(
     Notifications, name="Notifications")
 NotificationsIn_Pydantic = pydantic_model_creator(
-    Notifications, name="Notifications", exclude_readonly=True)
+    Notifications, name="NotificationsIn", exclude_readonly=True)
 
 
 class AuditLog(Model):
@@ -134,4 +134,4 @@ class AuditLog(Model):
 
 AuditLog_Pydantic = pydantic_model_creator(AuditLog, name="AuditLog")
 AuditLogIn_Pydantic = pydantic_model_creator(
-    AuditLog, name="AuditLog", exclude_readonly=True)
+    AuditLog, name="AuditLogIn", exclude_readonly=True)
