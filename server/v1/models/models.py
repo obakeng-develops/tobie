@@ -16,7 +16,7 @@ class UserLogin(Model):
     join_date = fields.DatetimeField(auto_now_add=True)
     modified_at = fields.DatetimeField(auto_now_add=True)
 
-    def full_name(self) -> str:
+    def full_name(self):
         """
         Returns the full name of the user
         """
@@ -60,7 +60,7 @@ class Notifications(Model):
     notification_priority = fields.CharEnumFiled(str, max_length=2)
     notification_date = fields.DatetimeField(auto_now_add=True)
 
-    def notification(self) -> str:
+    def notification(self):
         """
         Returns notification type
         """
@@ -86,7 +86,7 @@ class AuditLog(Model):
     action_date = fields.DatetimeField()
     user = fields.ForeignKeyField('models.UserLogin', related_name='auditlog')
 
-    def audit_log(self) -> str:
+    def audit_log(self):
         """
         Returns table and affected row
         """
