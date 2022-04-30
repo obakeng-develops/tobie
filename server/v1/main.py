@@ -23,8 +23,6 @@ from tortoise.contrib.fastapi import HTTPNotFoundError, register_tortoise
 
 app = FastAPI()
 
-# User Routes
-
 
 @app.get("/v1/users", response_model=List[User_Pydantic])
 async def get_users():
@@ -36,8 +34,6 @@ async def create_user(user: UserIn_Pydantic):
     user_obj = await UserLogin.create(**user.dict(exclude_unset=True))
     return await User_Pydantic.from_tortoise_orm(user_obj)
 
-# Product Routes
-
 
 @app.get("/v1/product/all", response_model=List[Product_Pydantic])
 async def get_products():
@@ -48,8 +44,6 @@ async def get_products():
 async def create_product(product: Product_Pydantic):
     product_obj = await Product.create(**product.dict(exclude_unset=True))
     return await Product_Pydantic.from_tortoise_orm(product_obj)
-
-# Store Routes
 
 
 @app.get("/v1/store/all", response_model=List[Store_Pydantic])
