@@ -54,6 +54,21 @@ class Notifications(Model):
     notification_priority = fields.CharEnumFiled(str, max_length=2)
     notification_date = fields.DatetimeField(auto_now_add=True)
 
+    def notification(self) -> str:
+        """
+        Returns notification type
+        """
+        return self.notification_type
+
+    class PydanticMeta:
+        exclude = ['notification_date']
+
+
+Notifications_Pydantic = pydantic_model_creator(
+    Notifications, name="Notifications")
+NotificationsIn_Pydantic = pydantic_model_creator(
+    Notifications, name="Notifications", exclude_readonly=True)
+
 
 class AuditLog(Model):
     """
