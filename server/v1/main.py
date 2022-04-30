@@ -40,8 +40,8 @@ async def get_products():
     return await Product_Pydantic.from_queryset(Product.all())
 
 
-@app.post("/v1/product/", response_model=Product_Pydantic)
-async def create_product(product: Product_Pydantic):
+@app.post("/v1/product/")
+async def create_product(product: ProductIn_Pydantic):
     product_obj = await Product.create(**product.dict(exclude_unset=True))
     return await Product_Pydantic.from_tortoise_orm(product_obj)
 
