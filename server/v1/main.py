@@ -24,18 +24,18 @@ from tortoise.contrib.fastapi import HTTPNotFoundError, register_tortoise
 app = FastAPI()
 
 
-@app.get("/v1/users", response_model=List[User_Pydantic])
+@app.get("/v1/users")
 async def get_users():
     return await User_Pydantic.from_queryset(UserLogin.all())
 
 
-@app.post("/v1/users", response_model=User_Pydantic)
+@app.post("/v1/users")
 async def create_user(user: UserIn_Pydantic):
     user_obj = await UserLogin.create(**user.dict(exclude_unset=True))
     return await User_Pydantic.from_tortoise_orm(user_obj)
 
 
-@app.get("/v1/product/all", response_model=List[Product_Pydantic])
+@app.get("/v1/product/all")
 async def get_products():
     return await Product_Pydantic.from_queryset(Product.all())
 
@@ -46,13 +46,13 @@ async def create_product(product: ProductIn_Pydantic):
     return await Product_Pydantic.from_tortoise_orm(product_obj)
 
 
-@app.get("/v1/store/all", response_model=List[Store_Pydantic])
+@app.get("/v1/store/all")
 async def get_stores():
     return await Store_Pydantic.from_queryset(Store.all())
 
 
-@app.post("/v1/store/", response_model=Store_Pydantic)
-async def create_store(store: Store_Pydantic):
+@app.post("/v1/store/")
+async def create_store(store: StoreIn_Pydantic):
     store_obj = await Store.create(**store.dict(exclude_unset=True))
     return await Store_Pydantic.from_tortoise_orm(store_obj)
 
