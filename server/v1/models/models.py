@@ -53,3 +53,14 @@ class Notifications(Model):
     notification_type = fields.CharEnumField(str, max_length=2)
     notification_priority = fields.CharEnumFiled(str, max_length=2)
     notification_date = fields.DatetimeField(auto_now_add=True)
+
+
+class AuditLog(Model):
+    """
+    Log of events
+    """
+    action = fields.CharField(max_length=150)
+    table = fields.CharField(max_length=80)
+    affected_row = fields.CharField(max_length=200)
+    action_date = fields.DatetimeField()
+    user = fields.ForeignKeyField('models.UserLogin', related_name='auditlog')
