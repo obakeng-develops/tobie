@@ -32,6 +32,32 @@ UserIn_Pydantic = pydantic_model_creator(
     UserLogin, name="UserLogin", exclude_readonly=True)
 
 
+class Product(Model):
+    """
+    Product information
+    """
+    id = fields.IntField(pk=True)
+    product_name = fields.CharField(max_length=255)
+    store_id = fields.ForeignKeyField('models.Store', related_name='products')
+    product_price = fields.FloatField()
+    prouct_url = fields.CharField(max_length=255)
+    product_variant = fields.CharField(max_length=150)
+    product_stock_level = fields.IntField()
+    product_image = fields.CharField(max_length=255)
+    current_sale = fields.IntField()
+
+    def product(self):
+        """
+        Return the product name
+        """
+        return self.product_name
+
+
+Product_Pydantic = pydantic_model_creator(Product, name="Product")
+ProductIn_Pydantic = pydantic_model_creator(
+    Product, name="Product", exclude_readonly=True)
+
+
 class Store(Model):
     """
     Product keeps all information about the saved product
