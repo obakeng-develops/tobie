@@ -52,7 +52,7 @@ async def get_stores():
 
 
 @app.post("/v1/store/", response_model=Store_Pydantic)
-async def create_product(store: Store_Pydantic):
+async def create_store(store: Store_Pydantic):
     store_obj = await Store.create(**store.dict(exclude_unset=True))
     return await Store_Pydantic.from_tortoise_orm(store_obj)
 
