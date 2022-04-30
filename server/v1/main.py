@@ -7,6 +7,8 @@ from tortoise.contrib.fastapi import HTTPNotFoundError, register_tortoise
 
 app = FastAPI()
 
+# User Routes
+
 
 @app.get("/v1/users", response_model=List[User_Pydantic])
 async def get_users():
@@ -17,6 +19,13 @@ async def get_users():
 async def create_user(user: UserIn_Pydantic):
     user_obj = await UserLogin.create(**user.dict(exclude_unset=True))
     return await User_Pydantic.from_tortoise_orm(user_obj)
+
+# Product Routes
+
+# Store Routes
+
+# Notification Routes
+# AuditLog Routes
 
 register_tortoise(
     app,
