@@ -40,6 +40,12 @@ class Store(Model):
     store_name = fields.CharField(max_length=255, null=True)
     store_url = fields.CharField(max_length=200, null=True)
 
+    def store(self):
+        """
+        Return store name
+        """
+        return self.store_name
+
 
 Store_Pydantic = pydantic_model_creator(Store, name="Store")
 StoreIn_Pydantic = pydantic_model_creator(
