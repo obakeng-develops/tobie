@@ -136,6 +136,20 @@ async def get_store(store_id: int):
     }
 
 
+@app.patch("/v1/store/{store_id}")
+async def update_store(store_id: int, update_details: StoreIn_Pydantic):
+    store = await Store.get(id=store_id)
+    update_details = update_details.dict(exclude_unset=True)
+    store.store_name = update_details['store_name']
+    store.store_url = update_details['store_url']
+    await store.save()
+    response = await Store_Pydantic.from_tortoise_orm(store)
+    return {
+        "status": "OK",
+        "data": response
+    }
+
+
 @app.delete("/v1/store/{store_id}")
 async def delete_product(store_id: int):
     await Store.get(id=store_id).delete()
