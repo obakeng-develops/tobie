@@ -109,7 +109,7 @@ async def update_product(product_id: int, update_details: ProductIn_Pydantic):
 
 
 @app.delete("/v1/product/{product_id}")
-async def delete_supplier(product_id: int):
+async def delete_product(product_id: int):
     await Product.get(id=product_id).delete()
     return {
         "status": "OK"
@@ -125,6 +125,7 @@ async def get_stores():
 async def create_store(store: StoreIn_Pydantic):
     store_obj = await Store.create(**store.dict(exclude_unset=True))
     return await Store_Pydantic.from_tortoise_orm(store_obj)
+
 
 # Notification Routes
 # AuditLog Routes
