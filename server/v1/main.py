@@ -44,6 +44,21 @@ async def get_user(user_id: int):
     }
 
 
+@app.patch("/v1/users/{user_id}")
+async def update_user(user_id: int, update_details: UserIn_Pydantic):
+    user = await UserLogin.get(id=user_id)
+    update_details = update_details.dict(exclude_unset=True)
+    user.first_name = update_details['first_name']
+    user.last_name = update_details['last_name']
+    user.email = update_details['email']
+    await user.save()
+    response = await User_Pydantic.from_tortoise_orm(user)
+    return {
+        "status": "OK",
+        "data": response
+    }
+
+
 @app.get("/v1/product/all")
 async def get_products():
     return await Product_Pydantic.from_queryset(Product.all())
