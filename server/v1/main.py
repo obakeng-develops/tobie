@@ -59,6 +59,14 @@ async def update_user(user_id: int, update_details: UserIn_Pydantic):
     }
 
 
+@app.delete("/v1/users/{user_id}")
+async def delete_supplier(user_id: int):
+    await UserLogin.get(id=user_id).delete()
+    return {
+        "status": "OK"
+    }
+
+
 @app.get("/v1/product/all")
 async def get_products():
     return await Product_Pydantic.from_queryset(Product.all())
