@@ -80,6 +80,15 @@ async def create_product(store_id: int, product_details: ProductIn_Pydantic):
     return await Product_Pydantic.from_tortoise_orm(product_obj)
 
 
+@app.get("/v1/product/{product_id}")
+async def get_product(product_id: int):
+    response = await Product_Pydantic.from_queryset_single(Product.get(id=product_id))
+    return {
+        "status": "OK",
+        "data": response
+    }
+
+
 @app.get("/v1/store/all")
 async def get_stores():
     return await Store_Pydantic.from_queryset(Store.all())
