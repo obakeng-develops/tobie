@@ -108,6 +108,14 @@ async def update_product(product_id: int, update_details: ProductIn_Pydantic):
     }
 
 
+@app.delete("/v1/product/{product_id}")
+async def delete_supplier(product_id: int):
+    await Product.get(id=product_id).delete()
+    return {
+        "status": "OK"
+    }
+
+
 @app.get("/v1/store/all")
 async def get_stores():
     return await Store_Pydantic.from_queryset(Store.all())
