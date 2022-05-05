@@ -44,7 +44,7 @@ async def get_products():
 async def create_product(store_id: int, product_details: ProductIn_Pydantic):
     store = await Store.get(id=store_id)
     product = product_details.dict(exclude_unset=True)
-    product_obj = await Product.create(**product_details, store_id=store)
+    product_obj = await Product.create(**product, store_id=store)
     return await Product_Pydantic.from_tortoise_orm(product_obj)
 
 
