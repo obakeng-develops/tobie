@@ -127,6 +127,15 @@ async def create_store(store: StoreIn_Pydantic):
     return await Store_Pydantic.from_tortoise_orm(store_obj)
 
 
+@app.get("/v1/store/{store_id}")
+async def get_store(store_id: int):
+    response = await Store_Pydantic.from_queryset_single(Store.get(id=store_id))
+    return {
+        "status": "OK",
+        "data": response
+    }
+
+
 @app.delete("/v1/store/{store_id}")
 async def delete_product(store_id: int):
     await Store.get(id=store_id).delete()
