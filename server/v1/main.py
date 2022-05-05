@@ -89,6 +89,25 @@ async def get_product(product_id: int):
     }
 
 
+@app.patch("/v1/product/{product_id}")
+async def update_product(product_id: int, update_details: ProductIn_Pydantic):
+    product = await Product.get(id=product_id)
+    update_details = update_details.dict(exclude_unset=True)
+    product.product_name = update_details['product_name']
+    product.product_price = update_details['product_price']
+    product.product_url = update_details['product_url']
+    product.product_variant = update_details['product_variant']
+    product.product_stock_level = update_details['product_stock_level']
+    product.product_image = update_details['product_image']
+    product.current_sale = update_details['current_sale']
+    await product.save()
+    response = await Product_Pydantic.from_tortoise_orm(product)
+    return {
+        "status": "OK",
+        "data": response
+    }
+
+
 @app.get("/v1/store/all")
 async def get_stores():
     return await Store_Pydantic.from_queryset(Store.all())
