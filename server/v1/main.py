@@ -35,6 +35,15 @@ async def create_user(user: UserIn_Pydantic):
     return await User_Pydantic.from_tortoise_orm(user_obj)
 
 
+@app.get("/v1/users/{user_id}")
+async def get_user(user_id: int):
+    response = await User_Pydantic.from_queryset_single(UserLogin.get(id=user_id))
+    return {
+        "status": "OK",
+        "data": response
+    }
+
+
 @app.get("/v1/product/all")
 async def get_products():
     return await Product_Pydantic.from_queryset(Product.all())
