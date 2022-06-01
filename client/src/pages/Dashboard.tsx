@@ -14,14 +14,16 @@ function Dashboard() {
             </div>
         </div>
         <div className='p-10 w-full'>
-            <input type='text' placeholder='Search' className='w-full bg-slate-200 p-3 rounded-md'/>
-            <select className='p-2 border border-slate-800 rounded-md my-3'>
-                <option>Superbalist</option>
-                <option>Takealot</option>
-                <option>OneDayOnly</option>
-            </select>
-            <div className='my-5 font-overpass text-3xl'>
-                You haven't saved anything yet. Go on to your favourite online store and start shopping!
+            <div className='my-5'>
+                <input type='text' placeholder='Search' className='w-full bg-slate-200 p-3 rounded-md'/>
+                <select className='p-2 border border-slate-800 rounded-md my-3'>
+                    <option>Superbalist</option>
+                    <option>Takealot</option>
+                    <option>OneDayOnly</option>
+                </select>
+                <div className='my-5 font-overpass text-3xl'>
+                    You haven't saved anything yet. Go on to your favourite online store and start shopping!
+                </div>
             </div>
         </div>
     </div>
