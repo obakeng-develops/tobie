@@ -7,6 +7,7 @@ function Dashboard() {
             <img src='/images/tobie-logo.png' className='w-20 h-20'/>
             <div>
                 <ul className='space-y-4'>
+                    <li className='text-2xl overpass'>Saves</li>
                     <li className='text-2xl overpass'>Profile</li>
                     <li className='text-2xl overpass'>Settings</li>
                 </ul>
