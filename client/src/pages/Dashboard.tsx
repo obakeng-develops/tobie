@@ -13,8 +13,8 @@ function Dashboard() {
                 </ul>
             </div>
         </div>
-        <div className='p-10'>
-            <input type='text' placeholder='Search' className='w-full bg-slate-300 p-3 rounded-md'/>
+        <div className='p-10 w-full'>
+            <input type='text' placeholder='Search' className='w-full bg-slate-200 p-3 rounded-md'/>
         </div>
     </div>
   )
