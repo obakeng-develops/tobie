@@ -14,7 +14,7 @@ function Dashboard() {
             </div>
         </div>
         <div className='p-10 w-full'>
-            <div className='my-5'>
+            <div className='my-8'>
                 <input type='text' placeholder='Search' className='w-full bg-slate-200 p-3 rounded-md'/>
                 <select className='p-2 border border-slate-800 rounded-md my-3'>
                     <option>Superbalist</option>
