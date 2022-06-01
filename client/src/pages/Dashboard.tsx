@@ -20,7 +20,7 @@ function Dashboard() {
                 <option>Takealot</option>
                 <option>OneDayOnly</option>
             </select>
-            <div>
+            <div className='my-5 font-overpass text-3xl'>
                 You haven't saved anything yet. Go on to your favourite online store and start shopping!
             </div>
         </div>
