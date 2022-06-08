@@ -1,4 +1,5 @@
 import React from 'react'
+import ProductCard from '../components/ProductCard'
 
 function Dashboard() {
   return (
@@ -22,7 +23,7 @@ function Dashboard() {
                     <option>OneDayOnly</option>
                 </select>
                 <div className='my-5 font-overpass text-3xl'>
-                    You haven't saved anything yet. Go on to your favourite online store and start shopping!
+                    <ProductCard/>
                 </div>
             </div>
         </div>
