@@ -22,7 +22,7 @@ function Dashboard() {
                     <option>Takealot</option>
                     <option>OneDayOnly</option>
                 </select>
-                <div className='my-5 font-overpass text-3xl'>
+                <div className='my-5 font-overpass text-3xl grid grid-cols-3'>
                     <ProductCard/>
                 </div>
             </div>
