@@ -17,7 +17,7 @@ function Dashboard() {
         <div className='p-10 w-full'>
             <div className='my-8'>
                 <input type='text' placeholder='Search' className='w-full bg-slate-200 p-3 rounded-md'/>
-                <select className='p-2 border border-slate-800 rounded-md my-3'>
+                <select className='p-2 border border-2 border-slate-800 rounded-md my-3 hover:border hover:border-2 hover:border-yellow-400 transition ease-in-out delay-150'>
                     <option>Superbalist</option>
                     <option>Takealot</option>
                     <option>OneDayOnly</option>
