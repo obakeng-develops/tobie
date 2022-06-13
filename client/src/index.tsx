@@ -8,6 +8,7 @@ import {
   Route
 } from "react-router-dom";
 import Dashboard from './pages/Dashboard';
+import Popup from './pages/Popup';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -17,6 +18,7 @@ root.render(
     <Routes>
       <Route path="/" element={<App />}>
         <Route index element={<App />}/>
+        <Route path="popup" element={<Popup/>}/>
       </Route>
     </Routes>
   </BrowserRouter>
