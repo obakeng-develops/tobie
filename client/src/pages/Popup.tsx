@@ -25,9 +25,9 @@ function Popup() {
           <label>R475</label>
         </div>
         <div>
-          <div>
-            <label>Notify Me When:</label>
-            <select>
+          <div className='bg-green-200 flex justify-between my-2 space-x-3 font-overpass border-2 border-green-700 p-2 rounded-md'>
+            <label className='font-bold'>Notify Me When:</label>
+            <select className='font-bold bg-green-200 border-none'>
               <option>25% off</option>
               <option>30% off</option>
               <option>50% off</option>
