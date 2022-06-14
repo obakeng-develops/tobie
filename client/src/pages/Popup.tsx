@@ -2,6 +2,11 @@ import React from 'react'
 
 function Popup() {
 
+  const imageStyle = {
+    backgroundImage: "/images/ryan-plomp.jpg",
+    backgroundSize: "cover"
+  }
+
   return (
     <div className='shadow-lg p-6 w-1/4 rounded-lg'>
       <div className='flex justify-between'>
