@@ -3,8 +3,9 @@ import React from 'react'
 function Popup() {
 
   const imageStyle = {
-    backgroundImage: "/images/ryan-plomp.jpg",
-    backgroundSize: "cover"
+    backgroundImage: 'url(/images/ryan-plomp.jpg)',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center'
   }
 
   return (
@@ -18,7 +19,7 @@ function Popup() {
         </div>
       </div>
       <div>
-        <div></div>
+        <div style={imageStyle} className='h-64 rounded-md my-3'></div>
         <div className='flex flex-col font-overpass'>
           <label>Nike Air Max</label>
           <label>R475</label>
