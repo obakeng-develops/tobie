@@ -16,9 +16,8 @@ const root = ReactDOM.createRoot(
 root.render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<App />}>
-        <Route path="popup" element={<Popup/>}/>
-      </Route>
+      <Route path="/" element={<App />}/>
+      <Route path="/popup" element={<Popup/>}/>
     </Routes>
   </BrowserRouter>
 );
