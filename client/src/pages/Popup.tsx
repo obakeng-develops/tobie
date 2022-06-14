@@ -25,6 +25,14 @@ function Popup() {
           <label>R475</label>
         </div>
         <div>
+          <div>
+            <label>Notify Me When:</label>
+            <select>
+              <option>25% off</option>
+              <option>30% off</option>
+              <option>50% off</option>
+            </select>
+          </div>
           <button className='bg-black font-overpass text-white p-2 rounded-md w-full my-3'>Save</button>
         </div>
       </div>
