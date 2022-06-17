@@ -10,7 +10,7 @@ function SignIn() {
             <button className='bg-rose-600 p-2 font-overpass text-white'>Login with Google</button>
         </div>
         <hr className='my-5'></hr>
-        <div className='flex flex-col'>
+        <div className='flex flex-col space-y-3'>
             <input type="text" placeholder="Email" className="font-overpass bg-slate-100 p-2"/>
             <input type="password" placeholder="Password" className="font-overpass bg-slate-100 p-2"/>
         </div>
