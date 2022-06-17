@@ -2,7 +2,7 @@ import React from 'react'
 
 function SignIn() {
   return (
-    <div className='flex flex-col justify-center items-center my-24'>
+    <div className='flex flex-col justify-center items-center my-24 space-y-4'>
         <img src='/images/tobie-logo.png' className='w-24 h-24'/>
         <label className='font-overpass font-bold text-2xl'>Sign In</label>
         <div className='flex flex-col space-y-2'>
