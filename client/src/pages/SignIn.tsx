@@ -11,8 +11,8 @@ function SignIn() {
         </div>
         <hr className='my-5'></hr>
         <div className='flex flex-col'>
-            <input type="text" placeholder="Email" className="font-overpass"/>
-            <input type="password" placeholder="Password" className="font-overpass"/>
+            <input type="text" placeholder="Email" className="font-overpass bg-slate-100 p-2"/>
+            <input type="password" placeholder="Password" className="font-overpass bg-slate-100 p-2"/>
         </div>
     </div>
   )
