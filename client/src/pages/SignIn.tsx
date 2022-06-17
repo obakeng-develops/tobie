@@ -10,6 +10,10 @@ function SignIn() {
             <button className='bg-rose-600 p-2 font-overpass text-white'>Login with Google</button>
         </div>
         <hr></hr>
+        <div>
+            <input type="text" placeholder="Email" className="font-overpass"/>
+            <input type="password" placeholder="Password" className="font-overpass"/>
+        </div>
     </div>
   )
 }
