@@ -13,6 +13,7 @@ function SignIn() {
         <div className='flex flex-col space-y-3'>
             <input type="text" placeholder="Email" className="font-overpass bg-slate-200 p-2"/>
             <input type="password" placeholder="Password" className="font-overpass bg-slate-200 p-2"/>
+            <button className='bg-black text-white p-2 font-overpass'>Sign Up</button>
         </div>
     </div>
   )
